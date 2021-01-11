@@ -3,6 +3,9 @@
 // bits: 1  SHIFT
 // bits: 2  CONTROL
 //
+// from https://github.com/extrawurst/gitui/blob/master/assets/vim_style_key_config.ron
+// $HOME/.config/gitui/key_config.ron
+//
 // Note:
 // If the default key layout is lower case,
 // and you want to use `Shift + q` to trigger the exit event,
