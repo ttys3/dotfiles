@@ -1,0 +1,7 @@
+# Rime schema settings
+# Wubi86 custom settings
+# encoding: utf-8 without bom
+patch:
+  speller/max_code_length: 4 #最长4码
+  speller/auto_select: true #顶字上屏
+  speller/auto_select_unique_candidate: true #无重码自动上屏
