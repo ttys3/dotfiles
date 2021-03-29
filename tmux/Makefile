@@ -1,8 +1,8 @@
 install:
-	-systemctl --user stop tmux 2>/dev/null
-	install -vD -m 755 ./tmux.service ~/.config/systemd/user/tmux.service
+	-systemctl --user stop mytmux 2>/dev/null
+	install -vD -m 755 ./mytmux.service ~/.config/systemd/user/mytmux.service
 	systemctl --user daemon-reload
-	systemctl --user enable --now tmux
-	systemctl --user status tmux
-	journalctl --user -a -f -u tmux
+	systemctl --user enable --now mytmux
+	systemctl --user status mytmux
+	journalctl --user -a -f -u mytmux
 .PHONY: install
