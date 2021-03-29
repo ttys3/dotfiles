@@ -3,6 +3,7 @@
 # ref https://wiki.archlinux.org/index.php/Tmux#Autostart_with_systemd
 [Unit]
 Description=User tmux in detached session
+After=gdm.service
 
 [Service]
 Type=forking
