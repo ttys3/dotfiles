@@ -2,12 +2,14 @@
 # enable the service: systemctl --user enable tmux
 # ref https://wiki.archlinux.org/index.php/Tmux#Autostart_with_systemd
 [Unit]
-Description=Start tmux in detached session
+Description=User tmux in detached session
 
 [Service]
 Type=forking
 ExecStart=/usr/bin/tmux new-session -s %u -d
 ExecStop=/usr/bin/tmux kill-session -t %u
+Restart=on-failure
+RestartSec=3s
 
 [Install]
 WantedBy=default.target
