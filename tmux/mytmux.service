@@ -7,9 +7,10 @@ Description=Start tmux in detached session
 [Service]
 Type=forking
 
+# comment here, use zsh preexec instead
 # below must changed per host/user
-Environment=DISPLAY=:1
-Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
+# Environment=DISPLAY=:1
+# Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
 
 ExecStart=/usr/bin/tmux new-session -s %u -d
 ExecStop=/usr/bin/tmux kill-session -t %u

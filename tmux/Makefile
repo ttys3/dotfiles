@@ -10,6 +10,6 @@ install:
 mystart:
 	install -vD -m 755 ./mystart.service ~/.config/systemd/user/mystart.service
 	systemctl --user daemon-reload
-	systemctl --user enable mystart
+	systemctl --user enable --now mystart
 	-systemctl --user status mystart
 .PHONY: mystart

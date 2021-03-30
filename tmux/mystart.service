@@ -10,7 +10,7 @@ Type=oneshot
 Environment=DISPLAY=:1
 Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
 
-ExecStart=/usr/bin/xmodmap %h/.Xmodmap
+ExecStart=/bin/true
 ExecStop=%h/.tmux/plugins/tmux-resurrect/scripts/save.sh
 
 [Install]
