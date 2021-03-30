@@ -1,0 +1,17 @@
+# put this file to ~/.config/systemd/user/mystart.service
+# enable the service: systemctl --user enable mystart
+[Unit]
+Description=User scripts run at startup/shutdown time
+
+[Service]
+Type=oneshot
+
+# below must changed per host/user
+Environment=DISPLAY=:1
+Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
+
+ExecStart=/usr/bin/xmodmap %h/.Xmodmap
+ExecStop=%h/.tmux/plugins/tmux-resurrect/scripts/save.sh
+
+[Install]
+WantedBy=default.target
