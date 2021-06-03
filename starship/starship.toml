@@ -27,5 +27,6 @@ utc_time_offset = "local"
 time_range = "09:00:00-19:10:00"
 
 [status]
-symbol = "🔴"
+symbol = "🔴 "
 disabled = false
+
