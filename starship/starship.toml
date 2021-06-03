@@ -12,6 +12,68 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
+# https://starship.rs/config/#default-prompt-format
+format = """
+$custom\
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$cmd_duration\
+$line_break\
+$lua\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
 [directory]
 read_only = " "
 truncation_length = 8
@@ -31,8 +93,59 @@ time_range = "09:00:00-19:10:00"
 symbol = "🔴 "
 disabled = false
 
+# show os icon, thanks https://www.nerdfonts.com/cheat-sheet
+#                 
+[custom.os_arch]
+disabled = false
+command = "true"
+symbol = "  "
+when = "[ \"$(lsb_release --id | cut -d':' -f2 | grep -o -P '\\w+' | tr '[:upper:]' '[:lower:]')\" == \"arch\" ]"
+shell = ["bash", "--noprofile", "--norc"]
 
-# icon presets
+[custom.os_ubuntu]
+disabled = false
+command = "true"
+symbol = "  "
+when = "[ \"$(lsb_release --id | cut -d':' -f2 | grep -o -P '\\w+' | tr '[:upper:]' '[:lower:]')\" == \"ubuntu\" ]"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.os_fedora]
+disabled = false
+command = "true"
+symbol = "  "
+when = "[ \"$(lsb_release --id | cut -d':' -f2 | grep -o -P '\\w+' | tr '[:upper:]' '[:lower:]')\" == \"fedora\" ]"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.os_centos]
+disabled = false
+command = "true"
+symbol = "  "
+when = "[ \"$(lsb_release --id | cut -d':' -f2 | grep -o -P '\\w+' | tr '[:upper:]' '[:lower:]')\" == \"centos\" ]"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.os_debian]
+disabled = false
+command = "true"
+symbol = "  "
+when = "[ \"$(lsb_release --id | cut -d':' -f2 | grep -o -P '\\w+' | tr '[:upper:]' '[:lower:]')\" == \"debian\" ]"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.os_gentoo]
+disabled = false
+command = "true"
+symbol = "  "
+when = "[ \"$(lsb_release --id | cut -d':' -f2 | grep -o -P '\\w+' | tr '[:upper:]' '[:lower:]')\" == \"gentoo\" ]"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.os_opensuse]
+disabled = false
+command = "true"
+symbol = "  "
+when = "[ \"$(lsb_release --id | cut -d':' -f2 | grep -o -P '\\w+' | tr '[:upper:]' '[:lower:]')\" == \"opensuse\" ]"
+shell = ["bash", "--noprofile", "--norc"]
+
+
+# symbol presets
 # https://starship.rs/presets/#nerd-font-symbols
 [aws]
 symbol = "  "
