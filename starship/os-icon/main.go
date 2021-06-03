@@ -11,9 +11,9 @@ import (
 )
 
 var iconMap = map[string]string{
-	"arch":     "",
+	"arch":     " ",
 	"ubuntu":   " ",
-	"fedora":   "",
+	"fedora":   " ",
 	"centos":   " ",
 	"debian":   " ",
 	"gentoo":   " ",
