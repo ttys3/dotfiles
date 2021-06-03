@@ -5,6 +5,10 @@
 # for example:
 # export STARSHIP_CONFIG=~/.starship/config.toml
 
+# default logs ~/.cache/starship/session_${STARSHIP_SESSION_KEY}.log
+# make it custom:
+# export STARSHIP_CACHE=~/.starship/cache
+
 # Inserts a blank line between shell prompts
 add_newline = false
 
