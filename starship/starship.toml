@@ -1,6 +1,10 @@
 # ~/.config/starship.toml
 # https://starship.rs/config/
 
+# You can change default configuration file location with STARSHIP_CONFIG environment variable
+# for example:
+# export STARSHIP_CONFIG=~/.starship/config.toml
+
 # Inserts a blank line between shell prompts
 add_newline = false
 
