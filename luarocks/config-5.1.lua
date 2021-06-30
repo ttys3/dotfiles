@@ -11,7 +11,7 @@ lua_version = "5.1"
 
 local_by_default = true
 
-lua_interpreter = "lua5.1"
+lua_interpreter = "lua" .. lua_version
 
 -- do not prepend `/usr` to lua_modules_path or lib_modules_path
 -- no need to change the default generally.
@@ -40,7 +40,7 @@ lib_modules_path = "/lib64/lua/"..lua_version
 connection_timeout = 30  -- 0 = no timeout
 
 variables = {
-    LUA = "/usr/bin/lua5.1",
+    LUA = "/usr/bin/lua" .. lua_version,
     LUA_DIR = "/usr",
     LUA_BINDIR = "/usr/bin",
 }
