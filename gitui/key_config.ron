@@ -1,5 +1,5 @@
 // bit for modifiers
-// bits: 0  None
+// bits: 0  None 
 // bits: 1  SHIFT
 // bits: 2  CONTROL
 //
@@ -20,24 +20,26 @@
 
     tab_toggle: ( code: Tab, modifiers: ( bits: 0,),),
     tab_toggle_reverse: ( code: BackTab, modifiers: ( bits: 1,),),
-
     toggle_workarea: ( code: Char('w'), modifiers: (bits: 0,),),
+
     focus_right: ( code: Char('l'), modifiers: ( bits: 0,),),
     focus_left: ( code: Char('h'), modifiers: ( bits: 0,),),
     focus_above: ( code: Char('k'), modifiers: ( bits: 0,),),
     focus_below: ( code: Char('j'), modifiers: ( bits: 0,),),
 
     open_help: ( code: F(1), modifiers: ( bits: 0,),),
+    open_options: ( code: Char('o'), modifiers: ( bits: 0,),),
 
-    exit: ( code: Char('Q'), modifiers: ( bits: 1,),),
+    exit: ( code: Char('c'), modifiers: ( bits: 2,),),
+    quit: ( code: Char('q'), modifiers: ( bits: 0,),),
     exit_popup: ( code: Esc, modifiers: ( bits: 0,),),
 
     open_commit: ( code: Char('c'), modifiers: ( bits: 0,),),
-
     // Note: the shift modifier does not work for open_commit_editor
     // Also just plain text characters will not work because the commit 
     // msg editor will interpret them as text input
     open_commit_editor: ( code: Char('e'), modifiers: ( bits: 2,),),
+    undo_commit: ( code: Char('U'), modifiers: ( bits: 1,),),
 
     move_left: ( code: Char('h'), modifiers: ( bits: 0,),),
     move_right: ( code: Char('l'), modifiers: ( bits: 0,),),
@@ -61,7 +63,6 @@
     edit_file: ( code: Char('I'), modifiers: ( bits: 1,),),
 
     status_stage_all: ( code: Char('a'), modifiers: ( bits: 0,),),
-
     status_reset_item: ( code: Char('U'), modifiers: ( bits: 1,),),
     status_ignore_file: ( code: Char('i'), modifiers: ( bits: 0,),),
 
@@ -77,7 +78,10 @@
     stash_drop: ( code: Char('D'), modifiers: ( bits: 1,),),
 
     cmd_bar_toggle: ( code: Char('.'), modifiers: ( bits: 0,),),
+
     log_tag_commit: ( code: Char('t'), modifiers: ( bits: 0,),),
+    log_mark_commit: ( code: Char(' '), modifiers: ( bits: 0,),),
+
     commit_amend: ( code: Char('a'), modifiers: ( bits: 2,),),
     copy: ( code: Char('y'), modifiers: ( bits: 0,),),
     create_branch: ( code: Char('c'), modifiers: ( bits: 0,),),
@@ -85,7 +89,10 @@
     select_branch: ( code: Char('b'), modifiers: ( bits: 0,),),
     delete_branch: ( code: Char('D'), modifiers: ( bits: 1,),),
     merge_branch: ( code: Char('m'), modifiers: ( bits: 0,),),
+    rebase_branch: ( code: Char('R'), modifiers: ( bits: 1,),),
     abort_merge: ( code: Char('M'), modifiers: ( bits: 1,),),
+
+    compare_commits: ( code: Char('C'), modifiers: ( bits: 1,),),
 
     tags: ( code: Char('T'), modifiers: ( bits: 1,),),
     delete_tag: ( code: Char('D'), modifiers: ( bits: 1,),),
@@ -96,6 +103,7 @@
     pull: ( code: Char('f'), modifiers: ( bits: 0,),),
 
     open_file_tree: ( code: Char('F'), modifiers: ( bits: 1,),),
+    file_find: ( code: Char('f'), modifiers: ( bits: 0,),),
 
     //removed in 0.11
     //tab_toggle_reverse_windows: ( code: BackTab, modifiers: ( bits: 1,),),
