@@ -15,7 +15,9 @@ lua_interpreter = "lua" .. lua_version
 -- dump_env()
 -- we can not use normal os.open here, so can not check /etc/fedora-release exists or not
 -- see https://github.com/luarocks/luarocks/wiki/Config-file-format#external-input
-lua_interpreter = (os_getenv('DEBUGINFOD_URLS') == 'https://debuginfod.fedoraproject.org/') and "lua" or lua_interpreter
+-- it is actually `https://debuginfod.fedoraproject.org/ `
+lua_interpreter = ((os_getenv('DEBUGINFOD_URLS') == 'https://debuginfod.fedoraproject.org/ ') or (os_getenv('DEBUGINFOD_URLS') == 'https://debuginfod.fedoraproject.org/')) and
+		"lua" or lua_interpreter
 
 -- do not prepend `/usr` to lua_modules_path or lib_modules_path
 -- no need to change the default generally.
@@ -44,7 +46,7 @@ lib_modules_path = "/lib64/lua/" .. lua_version
 connection_timeout = 30 -- 0 = no timeout
 
 variables = {
-		LUA = "/usr/bin/",
+		LUA = "/usr/bin/" .. lua_interpreter,
 		LUA_DIR = "/usr",
 		LUA_BINDIR = "/usr/bin",
 }
