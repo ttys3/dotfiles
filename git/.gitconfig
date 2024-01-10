@@ -1,6 +1,16 @@
+######################## user config begin ############################
+[user]
+    # this must comes befor any include or includeIf
+    # otherwise it will override their config
+	email = jdoe@example.com
+	name = J. Doe
+    #config from conditional include, see https://git-scm.com/docs/git-config#_conditional_includes
+    #see https://www.kevinkuszyk.com/2018/12/10/git-tips-6-using-git-with-multiple-email-addresses/
+
 [include]
     path = .gitconfig_home
 
+# dir based condition include
 [includeIf "gitdir:~/work/"]
   path = .gitconfig_work
 
@@ -10,11 +20,24 @@
 [includeIf "gitdir:~/anonymous-project/"]
   path = .gitconfig_anno
 
+# remote url based condition include
+# below works for git@code.example.com:part1/part2.git
+[includeIf "hasconfig:remote.*.url:git@code.example.com*/**"]
+    path = .gitconfig_work
 
-[user]
-    useConfigOnly = true
-    #config from conditional include, see https://git-scm.com/docs/git-config#_conditional_includes
-    #see https://www.kevinkuszyk.com/2018/12/10/git-tips-6-using-git-with-multiple-email-addresses/
+# below works for remote url https://code.example.com/part1/part2.git or https://code.example.com:8443/part1/part2.git
+# only `cat .git/config` can get the real `url`, because `git remote -v` will effected by insteadOf config
+[includeIf "hasconfig:remote.*.url:https://code.example.com*/**"]
+    path = .gitconfig_work
+
+# for github
+[includeIf "hasconfig:remote.*.url:git@github.com*/**"]
+    path = .gitconfig_home
+
+[includeIf "hasconfig:remote.*.url:https://github.com*/**"]
+    path = .gitconfig_home
+
+######################## user config end ############################
 
 [color]
     ui = true
@@ -156,7 +179,12 @@
 # for same hostname credential, organization specific token should goes first
 # using org custom config file ~/.git-credentials-org
 [credential "https://github.com/my-org/"]
+    # you need install git-credential-readonly from https://github.com/ttys3/git-credential-readonly
 	helper = readonly --file ~/.git-credentials-org
+	# https://git-scm.com/docs/gitcredentials#Documentation/gitcredentials.txt-useHttpPath
+	# uncomment below if you need match path by username or org name
+	# for example: repo path `foo/bar.git`, will match path by `foo`
+	useHttpPath = true
 
 # force use https instead of ssh
 # using default config file ~/.git-credentials
