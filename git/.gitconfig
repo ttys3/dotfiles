@@ -119,8 +119,8 @@
 
 [alias]
     co = checkout
-    ci = commit
-	cc = cz commit
+    ci = "!f() { git commit --date=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" \"${@}\";}; f"
+    cc = "!f() { git cz commit -- --date=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" \"${@}\";}; f"
     st = status
     stn = status -uno
     diffw = diff -w
