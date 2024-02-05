@@ -119,6 +119,7 @@
 
 [alias]
     co = checkout
+    sw = "!f() { git switch $(git br | fzf | tr -d '*\b'); }; f"
     ci = "!f() { git commit --date=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" \"${@}\";}; f"
     cc = "!f() { git cz commit -- --date=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" \"${@}\";}; f"
     st = status
