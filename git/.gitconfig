@@ -10,6 +10,11 @@
 [include]
     path = .gitconfig_home
 
+# git >= 2.36.0 https://git-scm.com/docs/git-config#Documentation/git-config.txt-codehasconfigremoteurlcode
+# https://stackoverflow.com/a/74708954/13267147
+# https://stackoverflow.com/a/55799403/13267147
+# to check the config, you can do: cat .git/config
+
 # dir based condition include
 [includeIf "gitdir:~/work/"]
   path = .gitconfig_work
@@ -119,9 +124,10 @@
 
 [alias]
     co = checkout
-    sw = "!f() { git switch $(git br | fzf | tr -d '*\b'); }; f"
-    ci = "!f() { git commit --date=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" \"${@}\";}; f"
-    cc = "!f() { git cz commit -- --date=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" \"${@}\";}; f"
+    sw = "!f(){ git switch $(git br | fzf | tr -d '*\b'); }; f"
+    #ci = "!f() { git commit --date=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" \"${@}\";}; f"
+    ci = "!f() { env GIT_COMMITTER_DATE=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" GIT_AUTHOR_DATE=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" git commit \"${@}\";}; f"
+	cc = "!f() { git cz commit -- --date=\"$(date --utc +%Y-%m-%dT%H:%M:%S%z)\" \"${@}\";}; f"
     st = status
     stn = status -uno
     diffw = diff -w
@@ -134,6 +140,7 @@
     last = log -1 HEAD
     lg1 = log --graph --abbrev-commit --decorate --date-order --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %aN%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg2 = log --graph --abbrev-commit --decorate --date-order --date=format:'%Y-%m-%d %H:%M:%S %z' --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %aN%C(reset)' --all
+    lg3 = log --invert-grep -P --grep='(dependabot|renovate)'
     lg = !git lg1
     up = "!git remote update -p; git merge --ff-only @{u}"
     zipmod = !git archive -o update.zip HEAD $(git diff --name-only HEAD^)
