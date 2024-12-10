@@ -6,6 +6,7 @@
     "intelephense.telemetry.enabled": false,
     "tabnine.experimentalAutoImports": true,
     "redhat.telemetry.enabled": false,
+    "telemetry.telemetryLevel": "crash",
     "editor.inlineSuggest.enabled": true,
     "editor.unicodeHighlight.nonBasicASCII": false,
     "workbench.colorTheme": "JetBrains New Dark",
@@ -35,7 +36,8 @@
 
     "plantuml.exportFormat": "svg",
     "plantuml.urlFormat": "svg",
-    "plantuml.server": "https://www.plantuml.com/plantuml ",
+    "plantuml.render": "PlantUMLServer",
+    "plantuml.server": "https://www.plantuml.com/plantuml",
 
     // see https://clang.llvm.org/docs/ClangFormatStyleOptions.html
     "clang-format.style": "{ IndentWidth: 4, BasedOnStyle: Mozilla, AlignConsecutiveAssignments: true,  AlignConsecutiveDeclarations: true, ColumnLimit: 160 }",
@@ -106,5 +108,30 @@
     "gopls": {
         "gofumpt": true,
         "staticcheck": true,
+    },
+    // python
+    // "python.autoComplete.extraPaths": [
+    //     "${userHome}/.local/lib/python3.13/site-packages/gi-stubs"
+    // ],
+    // "python.analysis.extraPaths": [
+    //     "${userHome}/.local/lib/python3.13/site-packages/gi-stubs"
+    // ],
+
+    "files.associations": {
+        "*.mdx": "markdown",
+        "*.toml": "toml"
+    },
+
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
 }
