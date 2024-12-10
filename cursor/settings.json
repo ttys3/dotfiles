@@ -20,7 +20,8 @@
     "go.toolsManagement.autoUpdate": true,
     "go.lintTool": "golangci-lint",
     "go.testFlags": [
-        "-v"
+        "-v",
+        "-count=1",
     ],
     // see https://github.com/golang/vscode-go/blob/master/docs/settings.md#gotestenvfile
     "go.testEnvFile": "${workspaceFolder}/.env",
