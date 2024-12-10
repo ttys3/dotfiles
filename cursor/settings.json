@@ -1,0 +1,103 @@
+{
+    "window.titleBarStyle": "custom",
+    "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontSize": 15,
+    "editor.fontWeight": "normal",
+    "intelephense.telemetry.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "redhat.telemetry.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "workbench.colorTheme": "JetBrains New Dark",
+    "editor.wordWrap": "on",
+
+    // golang
+    "go.inlayHints.assignVariableTypes": true,
+    "go.inlayHints.compositeLiteralFields": true,
+    "go.inlayHints.compositeLiteralTypes": true,
+    "go.inlayHints.constantValues": true,
+    "go.inlayHints.functionTypeParameters": true,
+    "go.toolsManagement.autoUpdate": true,
+    "go.lintTool": "golangci-lint",
+    "go.testFlags": [
+        "-v"
+    ],
+    // see https://github.com/golang/vscode-go/blob/master/docs/settings.md#gotestenvfile
+    "go.testEnvFile": "${workspaceFolder}/.env",
+    "go.testEnvVars": {
+        "LOG_LEVEL": "debug",
+    },
+
+    // rust
+    "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+
+
+    "plantuml.exportFormat": "svg",
+    "plantuml.urlFormat": "svg",
+    "plantuml.server": "https://www.plantuml.com/plantuml ",
+
+    // see https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+    "clang-format.style": "{ IndentWidth: 4, BasedOnStyle: Mozilla, AlignConsecutiveAssignments: true,  AlignConsecutiveDeclarations: true, ColumnLimit: 160 }",
+
+    "cursor.cpp.disabledLanguages": [
+        "scminput"
+    ],
+    "github.copilot.editor.enableAutoCompletions": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "yaml": true
+    },
+    "github.copilot.chat.edits.enabled": true,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+
+    "security.workspace.trust.untrustedFiles": "open",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "be5invis.toml"
+    },
+    "yaml.customTags": [
+        "!And",
+        "!And sequence",
+        "!If",
+        "!If sequence",
+        "!Not",
+        "!Not sequence",
+        "!Equals",
+        "!Equals sequence",
+        "!Or",
+        "!Or sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Join",
+        "!Join sequence",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!Sub sequence",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence"
+    ],
+    "aws.telemetry": false,
+    "frontmattergen.enabled": true,
+    "frontmattergen.filename.default": "index",
+    "frontmattergen.filename.extension": ".mdx",
+    "go.editorContextMenuCommands": {
+        "removeTags": true,
+        "fillStruct": true
+    },
+    "go.formatTool": "gofumpt",
+    "go.inlayHints.rangeVariableTypes": true,
+    "go.testExplorer.showDynamicSubtestsInEditor": true,
+}
