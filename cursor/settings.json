@@ -100,4 +100,10 @@
     "go.formatTool": "gofumpt",
     "go.inlayHints.rangeVariableTypes": true,
     "go.testExplorer.showDynamicSubtestsInEditor": true,
+    "files.autoSave": "onFocusChange",
+    // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+    "gopls": {
+        "gofumpt": true,
+        "staticcheck": true,
+    },
 }
