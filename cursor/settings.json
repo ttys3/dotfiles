@@ -1,3 +1,4 @@
+// https://code.visualstudio.com/docs/editor/variables-reference
 {
     "window.titleBarStyle": "custom",
     "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace",
