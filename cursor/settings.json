@@ -1,4 +1,5 @@
 // https://code.visualstudio.com/docs/editor/variables-reference
+// run and debug https://code.visualstudio.com/docs/cpp/launch-json-reference
 {
     "window.titleBarStyle": "custom",
     "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace",
@@ -14,6 +15,8 @@
     "editor.wordWrap": "on",
 
     // golang
+    // ref docs https://code.visualstudio.com/docs/languages/go
+    // https://github.com/golang/vscode-go/wiki/debugging
     "go.inlayHints.assignVariableTypes": true,
     "go.inlayHints.compositeLiteralFields": true,
     "go.inlayHints.compositeLiteralTypes": true,
