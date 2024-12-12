@@ -2,17 +2,19 @@
 // run and debug https://code.visualstudio.com/docs/cpp/launch-json-reference
 {
     "window.titleBarStyle": "custom",
+    "security.workspace.trust.untrustedFiles": "open",
     "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontSize": 15,
     "editor.fontWeight": "normal",
-    "intelephense.telemetry.enabled": false,
-    "tabnine.experimentalAutoImports": true,
-    "redhat.telemetry.enabled": false,
-    "telemetry.telemetryLevel": "crash",
     "editor.inlineSuggest.enabled": true,
     "editor.unicodeHighlight.nonBasicASCII": false,
     "workbench.colorTheme": "JetBrains New Dark",
     "editor.wordWrap": "on",
+    "files.autoSave": "onFocusChange",
+    "files.associations": {
+        "*.mdx": "markdown",
+        "*.toml": "toml"
+    },
 
     // git
     "git.blame.editorDecoration.enabled": true,
@@ -37,6 +39,18 @@
     "go.testEnvVars": {
         "LOG_LEVEL": "debug",
     },
+    "go.editorContextMenuCommands": {
+        "removeTags": true,
+        "fillStruct": true
+    },
+    "go.formatTool": "gofumpt",
+    "go.inlayHints.rangeVariableTypes": true,
+    "go.testExplorer.showDynamicSubtestsInEditor": true,
+    // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+    "gopls": {
+        "gofumpt": true,
+        "staticcheck": true,
+    },
 
     // rust
     "rust-analyzer.inlayHints.bindingModeHints.enable": true,
@@ -50,9 +64,12 @@
     // see https://clang.llvm.org/docs/ClangFormatStyleOptions.html
     "clang-format.style": "{ IndentWidth: 4, BasedOnStyle: Mozilla, AlignConsecutiveAssignments: true,  AlignConsecutiveDeclarations: true, ColumnLimit: 160 }",
 
+    // cursor editor specific settings
     "cursor.cpp.disabledLanguages": [
         "scminput"
     ],
+
+    // github copilot
     "github.copilot.editor.enableAutoCompletions": true,
     "github.copilot.enable": {
         "*": true,
@@ -64,13 +81,26 @@
     "github.copilot.chat.edits.enabled": true,
     "github.copilot.chat.codeGeneration.useInstructionFiles": true,
 
-    "security.workspace.trust.untrustedFiles": "open",
+    // tabnine
+    "tabnine.experimentalAutoImports": true,
+
+    // python
     "[python]": {
         "editor.formatOnType": true
     },
+    // "python.autoComplete.extraPaths": [
+    //     "${userHome}/.local/lib/python3.13/site-packages/gi-stubs"
+    // ],
+    // "python.analysis.extraPaths": [
+    //     "${userHome}/.local/lib/python3.13/site-packages/gi-stubs"
+    // ],
+
+    // toml
     "[toml]": {
         "editor.defaultFormatter": "be5invis.toml"
     },
+
+    // yaml
     "yaml.customTags": [
         "!And",
         "!And sequence",
@@ -100,35 +130,18 @@
         "!Split",
         "!Split sequence"
     ],
+
+    // telemetry
+    "telemetry.telemetryLevel": "crash",
+    "intelephense.telemetry.enabled": false,
+    "redhat.telemetry.enabled": false,
     "aws.telemetry": false,
+
+    // frontmattergen   
     "frontmattergen.enabled": true,
     "frontmattergen.filename.default": "index",
     "frontmattergen.filename.extension": ".mdx",
-    "go.editorContextMenuCommands": {
-        "removeTags": true,
-        "fillStruct": true
-    },
-    "go.formatTool": "gofumpt",
-    "go.inlayHints.rangeVariableTypes": true,
-    "go.testExplorer.showDynamicSubtestsInEditor": true,
-    "files.autoSave": "onFocusChange",
-    // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
-    "gopls": {
-        "gofumpt": true,
-        "staticcheck": true,
-    },
-    // python
-    // "python.autoComplete.extraPaths": [
-    //     "${userHome}/.local/lib/python3.13/site-packages/gi-stubs"
-    // ],
-    // "python.analysis.extraPaths": [
-    //     "${userHome}/.local/lib/python3.13/site-packages/gi-stubs"
-    // ],
 
-    "files.associations": {
-        "*.mdx": "markdown",
-        "*.toml": "toml"
-    },
 
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
