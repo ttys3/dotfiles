@@ -3,7 +3,7 @@
 {
     "window.titleBarStyle": "custom",
     "security.workspace.trust.untrustedFiles": "open",
-    "editor.fontFamily": "'Iosevka Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "'Iosevka Nerd Font', 'JetBrainsMono Nerd Font', 'monospace', monospace",
     "editor.fontSize": 15,
     "editor.fontWeight": "normal",
     "editor.inlineSuggest.enabled": true,
