@@ -66,6 +66,9 @@
     "evenBetterToml.formatter.columnWidth": 128,
     // "rust-analyzer.trace.server": "verbose",
 
+    // PHP
+    "intelephense.codeLens.parent.enable": true,
+    "intelephense.environment.phpVersion": "8.1.31",
 
     "plantuml.exportFormat": "svg",
     "plantuml.urlFormat": "svg",
