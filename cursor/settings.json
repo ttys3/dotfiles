@@ -56,6 +56,15 @@
     // rust
     "rust-analyzer.inlayHints.bindingModeHints.enable": true,
     "rust-analyzer.testExplorer": true,
+    "rust-analyzer.runnables.extraEnv":  {
+        "SQLX_OFFLINE": "true",
+    },
+    "rust-analyzer.server.extraEnv": {
+        "SQLX_OFFLINE": "true",
+    },
+    "evenBetterToml.formatter.allowedBlankLines": 2,
+    "evenBetterToml.formatter.columnWidth": 128,
+    // "rust-analyzer.trace.server": "verbose",
 
 
     "plantuml.exportFormat": "svg",
@@ -99,7 +108,7 @@
 
     // toml
     "[toml]": {
-        "editor.defaultFormatter": "be5invis.toml"
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
     },
 
     // yaml
