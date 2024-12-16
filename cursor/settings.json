@@ -8,6 +8,7 @@
     "editor.fontWeight": "normal",
     "editor.inlineSuggest.enabled": true,
     "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
     "workbench.colorTheme": "JetBrains New Dark",
     "editor.wordWrap": "on",
     "files.autoSave": "onFocusChange",
@@ -54,6 +55,7 @@
 
     // rust
     "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+    "rust-analyzer.testExplorer": true,
 
 
     "plantuml.exportFormat": "svg",
