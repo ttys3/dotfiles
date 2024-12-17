@@ -113,9 +113,6 @@
     ],
     "rust-analyzer.diagnostics.disabled": [],
 
-    "evenBetterToml.formatter.allowedBlankLines": 2,
-    "evenBetterToml.formatter.columnWidth": 128,
-
     // PHP
     "intelephense.codeLens.parent.enable": true,
     "intelephense.environment.phpVersion": "8.1.31",
@@ -163,6 +160,8 @@
     "[toml]": {
         "editor.defaultFormatter": "tamasfe.even-better-toml"
     },
+    "evenBetterToml.formatter.allowedBlankLines": 2,
+    "evenBetterToml.formatter.columnWidth": 128,
 
     // yaml
     "yaml.customTags": [
