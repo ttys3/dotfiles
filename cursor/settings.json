@@ -91,15 +91,30 @@
     // rust
     "rust-analyzer.inlayHints.bindingModeHints.enable": true,
     "rust-analyzer.testExplorer": true,
-    "rust-analyzer.runnables.extraEnv":  {
-        "SQLX_OFFLINE": "true"
+    // Extra environment variables for cargo, rustc or other commands, useful for setting RUSTFLAGS
+    "rust-analyzer.cargo.extraEnv": {
+        // for sqlx crate
+        "SQLX_OFFLINE": "true",
+        "RUST_TEST_NOCAPTURE": "1",
+        // allow warnings
+        // "RUSTFLAGS": "--cfg tokio_unstable --cfg tracing_unstable -Awarnings"
     },
-    "rust-analyzer.server.extraEnv": {
-        "SQLX_OFFLINE": "true"
-    },
+    // for cargo check. Extends rust-analyzer.cargo.extraEnv, default: {}
+    "rust-analyzer.check.extraEnv":{},
+    "rust-analyzer.runnables.extraEnv":  {},
+    "rust-analyzer.server.extraEnv": {},
+    // For example for cargo check: dead_code, unused_imports, unused_variables,…​
+    // we can also set it in `RUSTFLAGS` env like `RUSTFLAGS="-A unused_imports -A dead_code -A unused_variables"`
+    // but set RUSTFLAGS will trigger a full re-compilation
+    "rust-analyzer.check.ignore": [
+        "unused_imports",
+        "dead_code",
+        "unused_variables",
+    ],
+    "rust-analyzer.diagnostics.disabled": [],
+
     "evenBetterToml.formatter.allowedBlankLines": 2,
     "evenBetterToml.formatter.columnWidth": 128,
-    // "rust-analyzer.trace.server": "verbose",
 
     // PHP
     "intelephense.codeLens.parent.enable": true,
