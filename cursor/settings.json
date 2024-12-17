@@ -9,6 +9,14 @@
     "editor.inlineSuggest.enabled": true,
     "editor.unicodeHighlight.nonBasicASCII": false,
     "editor.unicodeHighlight.ambiguousCharacters": false,
+    // ref https://www.arhea.net/posts/2023-08-24-golang-vscode-configuration/
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    // remove any code actions that are configured to run on save
+    "editor.codeActionsOnSave": [],
+    // put a ruler on the editing screen at 128 characters
+    "editor.rulers": [160],
     "workbench.colorTheme": "JetBrains New Dark",
     "editor.wordWrap": "on",
     "files.autoSave": "onFocusChange",
@@ -21,9 +29,25 @@
     "git.blame.editorDecoration.enabled": true,
     "git.blame.statusBarItem.enabled": true,
 
+    // go specific settings
+  "[go]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "golang.go",
+        "editor.codeActionsOnSave": {
+            // https://stackoverflow.com/questions/60658737/is-it-possible-to-enable-source-organizeimports-without-removal-of-unused-import
+            // https://code.visualstudio.com/updates/v1_83#_code-actions-on-save-and-auto-save
+            // explicit means do not run the action on Auto Saves from window or focus changes
+            "source.organizeImports": "explicit",
+            // "source.sortImports" works just like "source.organizeImports" without removing the imports you haven't used yet.
+            // "source.sortImports": "explicit",
+            "source.fixAll": "explicit"
+        }
+    },
     // golang
     // ref docs https://code.visualstudio.com/docs/languages/go
     // https://github.com/golang/vscode-go/wiki/debugging
+    // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+    // https://github.com/golang/vscode-go/blob/master/docs/settings.md
     "go.inlayHints.assignVariableTypes": true,
     "go.inlayHints.compositeLiteralFields": true,
     "go.inlayHints.compositeLiteralTypes": true,
@@ -31,14 +55,22 @@
     "go.inlayHints.functionTypeParameters": true,
     "go.toolsManagement.autoUpdate": true,
     "go.lintTool": "golangci-lint",
+    // we need set go.lintOnSav to `workspace`, otherwise golangci-lint only lint cwd
+    // see https://github.com/golang/vscode-go/blob/a59ce5a309b8287486ade7707317bd21d941eb27/extension/src/goLint.ts#L115
+    "go.lintOnSave": "workspace",
+    "go.lintFlags": [
+        // Enable only fast linters from enabled linters set (first run won't be fast)
+        // Using it in an editor without --fast can freeze your editor https://golangci-lint.run/welcome/integrations/#go-for-visual-studio-code
+        "--fast"
+    ],
     "go.testFlags": [
         "-v",
-        "-count=1",
+        "-count=1"
     ],
     // see https://github.com/golang/vscode-go/blob/master/docs/settings.md#gotestenvfile
     "go.testEnvFile": "${workspaceFolder}/.env",
     "go.testEnvVars": {
-        "LOG_LEVEL": "debug",
+        "LOG_LEVEL": "debug"
     },
     "go.editorContextMenuCommands": {
         "removeTags": true,
@@ -49,18 +81,20 @@
     "go.testExplorer.showDynamicSubtestsInEditor": true,
     // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
     "gopls": {
-        "gofumpt": true,
+        "formatting.gofumpt": true,
         "staticcheck": true,
+        "ui.semanticTokens": true,
+        "ui.completion.usePlaceholders": true
     },
 
     // rust
     "rust-analyzer.inlayHints.bindingModeHints.enable": true,
     "rust-analyzer.testExplorer": true,
     "rust-analyzer.runnables.extraEnv":  {
-        "SQLX_OFFLINE": "true",
+        "SQLX_OFFLINE": "true"
     },
     "rust-analyzer.server.extraEnv": {
-        "SQLX_OFFLINE": "true",
+        "SQLX_OFFLINE": "true"
     },
     "evenBetterToml.formatter.allowedBlankLines": 2,
     "evenBetterToml.formatter.columnWidth": 128,
@@ -168,5 +202,5 @@
     },
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
-    },
+    }
 }
