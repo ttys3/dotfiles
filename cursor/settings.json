@@ -81,8 +81,9 @@
     "go.testExplorer.showDynamicSubtestsInEditor": true,
     // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
     "gopls": {
+        // "verboseOutput": true,
         "formatting.gofumpt": true,
-        "staticcheck": true,
+        "staticcheck": false,
         "ui.semanticTokens": true,
         "ui.completion.usePlaceholders": true
     },
