@@ -22,7 +22,8 @@
     "files.autoSave": "onFocusChange",
     "files.associations": {
         "*.mdx": "markdown",
-        "*.toml": "toml"
+        "*.toml": "toml",
+        "*.proto2": "proto3"
     },
 
     // git
@@ -83,9 +84,11 @@
     "gopls": {
         // "verboseOutput": true,
         "formatting.gofumpt": true,
-        "staticcheck": false,
         "ui.semanticTokens": true,
-        "ui.completion.usePlaceholders": true
+        "ui.diagnostic.analyses": {
+            // disable unusedparams analyse
+            "unusedparams": false
+        }
     },
 
     // rust
