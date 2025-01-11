@@ -116,6 +116,9 @@
     ],
     "rust-analyzer.diagnostics.disabled": [],
 
+    // Zig
+    "zig.zls.enabled": "on",
+
     // PHP
     "intelephense.codeLens.parent.enable": true,
     "intelephense.environment.phpVersion": "8.1.31",
@@ -220,5 +223,8 @@
     },
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
     }
 }
