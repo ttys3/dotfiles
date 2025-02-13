@@ -70,6 +70,7 @@
     ],
     // see https://github.com/golang/vscode-go/blob/master/docs/settings.md#gotestenvfile
     "go.testEnvFile": "${workspaceFolder}/.env",
+    // "go.toolsEnvVars": {},
     "go.testEnvVars": {
         "LOG_LEVEL": "debug"
     },
