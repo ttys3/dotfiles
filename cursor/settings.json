@@ -227,5 +227,7 @@
     },
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
-    }
+    },
+    // Cursor "paste as" feature is not enabled by default, so we need to enable it explicitly
+    "editor.pasteAs.enabled": true
 }
