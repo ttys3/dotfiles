@@ -11,7 +11,7 @@ lua_version = "5.4"
 local_by_default = true
 
 
-lua_interpreter = "lua" .. lua_version
+lua_interpreter = "lua"
 -- dump_env()
 -- we can not use normal os.open here, so can not check /etc/fedora-release exists or not
 -- see https://github.com/luarocks/luarocks/wiki/Config-file-format#external-input
