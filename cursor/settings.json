@@ -74,13 +74,13 @@
     ],
     "go.testFlags": [
         "-v",
-        "-count=1"
+        "-count=1",
     ],
     // see https://github.com/golang/vscode-go/blob/master/docs/settings.md#gotestenvfile
     // "go.testEnvFile": "${workspaceFolder}/.env",
     // "go.toolsEnvVars": {},
     "go.testEnvVars": {
-        "LOG_LEVEL": "debug"
+        "LOG_LEVEL": "debug",
     },
     "go.editorContextMenuCommands": {
         "removeTags": true,
