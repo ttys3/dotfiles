@@ -3,8 +3,8 @@
 {
     "window.titleBarStyle": "custom",
     "security.workspace.trust.untrustedFiles": "open",
-    "editor.fontFamily": "'Iosevka Nerd Font', 'JetBrainsMono Nerd Font', 'monospace', monospace",
-    "editor.fontSize": 15,
+    "editor.fontFamily": "Iosevka, 'Iosevka Term', Lilex, JetBrainsMono, monospace",
+    "editor.fontSize": 14,
     "editor.fontWeight": "normal",
     "editor.inlineSuggest.enabled": true,
     "editor.unicodeHighlight.nonBasicASCII": false,
@@ -16,14 +16,18 @@
     // remove any code actions that are configured to run on save
     "editor.codeActionsOnSave": [],
     // put a ruler on the editing screen at 128 characters
-    "editor.rulers": [160],
+    "editor.rulers": [
+        160
+    ],
     "workbench.colorTheme": "JetBrains New Dark",
     "editor.wordWrap": "on",
     "files.autoSave": "onFocusChange",
     "files.associations": {
+        // use https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx
         "*.mdx": "markdown",
         "*.toml": "toml",
-        "*.proto2": "proto3"
+        "*.proto2": "proto3",
+	"*.gn": "ninja"
     },
 
     // git
@@ -60,16 +64,20 @@
     // see https://github.com/golang/vscode-go/blob/a59ce5a309b8287486ade7707317bd21d941eb27/extension/src/goLint.ts#L115
     "go.lintOnSave": "workspace",
     "go.lintFlags": [
+        // Explicitly specify config file path to ensure VS Code uses it
+        "--config=${workspaceFolder}/.golangci.yml",
         // Enable only fast linters from enabled linters set (first run won't be fast)
         // Using it in an editor without --fast can freeze your editor https://golangci-lint.run/welcome/integrations/#go-for-visual-studio-code
-        "--fast"
+        "--fast-only",
+        "--tests=false",
+        "-v",
     ],
     "go.testFlags": [
         "-v",
         "-count=1"
     ],
     // see https://github.com/golang/vscode-go/blob/master/docs/settings.md#gotestenvfile
-    "go.testEnvFile": "${workspaceFolder}/.env",
+    // "go.testEnvFile": "${workspaceFolder}/.env",
     // "go.toolsEnvVars": {},
     "go.testEnvVars": {
         "LOG_LEVEL": "debug"
@@ -81,6 +89,7 @@
     "go.formatTool": "gofumpt",
     "go.inlayHints.rangeVariableTypes": true,
     "go.testExplorer.showDynamicSubtestsInEditor": true,
+    "go.useLanguageServer": true,
     // https://github.com/golang/tools/blob/master/gopls/doc/settings.md
     "gopls": {
         // "verboseOutput": true,
@@ -88,7 +97,9 @@
         "ui.semanticTokens": true,
         "ui.diagnostic.analyses": {
             // disable unusedparams analyse
-            "unusedparams": false
+            "unusedparams": false,
+            "unusedfunc": false,
+            "unusedwrite": false
         }
     },
 
@@ -225,9 +236,16 @@
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
+    // Cursor "paste as" feature is not enabled by default, so we need to enable it explicitly
+    "editor.pasteAs.enabled": true
+    "markdown.editor.pasteUrlAsFormattedLink.enabled": "never",
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
-    // Cursor "paste as" feature is not enabled by default, so we need to enable it explicitly
-    "editor.pasteAs.enabled": true
+    // Cursor specific settings begin
+    "update.mode": "silentlyApplyOnQuit",
+    "update.releaseTrack": "dev",
+    "cursor.agent_layout_browser_beta_setting": true,
+    "cursor.composer.shouldAllowCustomModes": true,
+    // Cursor specific settings end
 }
