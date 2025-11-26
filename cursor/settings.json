@@ -4,7 +4,8 @@
     "window.titleBarStyle": "custom",
     "security.workspace.trust.untrustedFiles": "open",
     "editor.fontFamily": "Iosevka, 'Iosevka Term', Lilex, JetBrainsMono, monospace",
-    "editor.fontSize": 14,
+    // use 15 for Iosevka, 14 for Lilex
+    "editor.fontSize": 15,
     "editor.fontWeight": "normal",
     "editor.inlineSuggest.enabled": true,
     "editor.unicodeHighlight.nonBasicASCII": false,
@@ -237,7 +238,7 @@
         "editor.defaultFormatter": "vscode.html-language-features"
     },
     // Cursor "paste as" feature is not enabled by default, so we need to enable it explicitly
-    "editor.pasteAs.enabled": true
+    "editor.pasteAs.enabled": true,
     "markdown.editor.pasteUrlAsFormattedLink.enabled": "never",
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
