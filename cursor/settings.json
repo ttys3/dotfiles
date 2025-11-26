@@ -77,6 +77,9 @@
         "-v",
         "-count=1",
     ],
+    "go.generateTestsFlags": [
+        "-count=1 -v"
+    ],
     // see https://github.com/golang/vscode-go/blob/master/docs/settings.md#gotestenvfile
     // "go.testEnvFile": "${workspaceFolder}/.env",
     // "go.toolsEnvVars": {},
