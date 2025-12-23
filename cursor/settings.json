@@ -91,7 +91,8 @@
         "removeTags": true,
         "fillStruct": true
     },
-    "go.formatTool": "gofumpt",
+    // conflict with gopls.formatting.gofumpt=true
+    //"go.formatTool": "gofumpt",
     "go.inlayHints.rangeVariableTypes": true,
     "go.testExplorer.showDynamicSubtestsInEditor": true,
     "go.useLanguageServer": true,
