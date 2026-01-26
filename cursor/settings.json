@@ -73,9 +73,12 @@
         "--tests=false",
         "-v",
     ],
+    // Go test timeout configuration
+    "go.testTimeout": "5m",
     "go.testFlags": [
         "-v",
         "-count=1",
+	"-timeout=5m",
     ],
     "go.generateTestsFlags": [
         "-count=1",
