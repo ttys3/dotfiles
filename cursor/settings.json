@@ -28,7 +28,8 @@
         "*.mdx": "markdown",
         "*.toml": "toml",
         "*.proto2": "proto3",
-	"*.gn": "ninja"
+	"*.gn": "ninja",
+	"*.jwcc": "jsonc"
     },
 
     // git
@@ -142,7 +143,7 @@
 
     // PHP
     "intelephense.codeLens.parent.enable": true,
-    "intelephense.environment.phpVersion": "8.1.31",
+    "intelephense.environment.phpVersion": "8.2.30",
 
     "plantuml.exportFormat": "svg",
     "plantuml.urlFormat": "svg",
