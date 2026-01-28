@@ -4,30 +4,24 @@
 # Usage: ./compare-to-local.sh [app]
 #   app: Cursor (default), Code, or Kiro
 
-app="${1:-Cursor}"
 
-case "$app" in
-    Cursor|cursor)
-        mac_path="$HOME/Library/Application Support/Cursor/User/settings.json"
-        linux_path="$HOME/.config/Cursor/User/settings.json"
-        ;;
-    Code|code|VSCode|vscode)
-        mac_path="$HOME/Library/Application Support/Code/User/settings.json"
-        linux_path="$HOME/.config/Code/User/settings.json"
-        ;;
-    Kiro|kiro)
-        mac_path="$HOME/Library/Application Support/Kiro/User/settings.json"
-        linux_path="$HOME/.config/Kiro/User/settings.json"
-        ;;
+app="${1:-Cursor}"
+app_name=$(echo "$app" | awk '{print tolower($0)}')
+case $app_name in
+    cursor|code|kiro) ;;
+    vscode) app_name=code ;;
     *)
         echo "Unknown app: $app"
         echo "Supported: Cursor, Code, Kiro"
         exit 1
         ;;
 esac
+app_capitalized="${app_name^}"
 
 if [[ "$(uname)" == "Darwin" ]]; then
-    bcompare ./settings.json "$mac_path"
+    local_path="$HOME/Library/Application Support/${app_capitalized}/User/settings.json"
 else
-    bcompare ./settings.json "$linux_path"
+    local_path="$HOME/.config/${app_capitalized}/User/settings.json"
 fi
+
+bcompare ./settings.json "$local_path"
